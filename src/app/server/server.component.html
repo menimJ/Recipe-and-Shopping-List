@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            This is a server
+            <p [innerText]="msg"></p>
+            <input type="text" [(ngModel)]="msg" class="form-control">
+        </div>
+        <div class="col">
+            <input type="text" 
+            class = "form-control"
+            (input) = "getValue($event)">
+            <button class="btn btn-primary" [disabled] = "!value" (click)="changeText()">Change Text</button>
+        </div>
+        <div class="col">
+            <select name="name" class="form-control">
+                <option value="" disabled selected >Select an Option</option>
+                <option value="menim">Menim</option>
+                <option value="Samuel">Samuel</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>
+                <p *ngIf="value== true; else noValue">
+                    Let try using If and else condition
+                </p>
+                <ng-template #noValue></ng-template>
+                <p>
+                    Else is working
+                </p>
+            </div>
+            <label for="phone">Phone</label>
+               
+        </div>
+        <div class="col">
+            <div *ngFor="let i of [1,2,21,1,1,1,1,1];let val = index">
+                {{val}}<p>love</p>
+            </div>
+        </div>
+        <div class="col">
+            <p [ngStyle]="{backgroundColor: getColour()} " [ngClass]="{online: status === 'Online'? true : false}">
+                The value is {{status}}
+            </p>
+            <p [ngClass]="{online: status === 'Online'? true : false}">The value is {{status}}</p>
+        </div>
+    </div>
+</div>
+
+
